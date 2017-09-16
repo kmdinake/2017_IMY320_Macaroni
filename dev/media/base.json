@@ -1,0 +1,24 @@
+{
+    "chapters": [
+        {
+            "title": "Intro",
+            "artwork": "/media/img/de1.png",
+            "detail": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas laoreet dui metus, quis rhoncus urna aliquet ut. Duis quis nisl laoreet, consectetur quam in, convallis ex. Praesent ac pharetra odio. Nullam scelerisque at risus nec rutrum. Duis sollicitudin dolor nisi, a elementum sem pretium vel. Donec quis pharetra est, id eleifend lacus. Quisque elementum ut eros et cursus. Maecenas condimentum leo id scelerisque pretium. Pellentesque et purus maximus, molestie ligula eu, maximus quam. Fusce pulvinar ultrices ligula eu feugiat. Aliquam suscipit lectus vel ligula malesuada euismod. Donec ullamcorper, tellus in mattis feugiat, arcu felis suscipit odio, quis convallis nunc massa eget libero. Maecenas facilisis volutpat mauris.Donec cursus neque nec lacus consequat, ac convallis felis mattis. Ut laoreet lectus eleifend mi congue, ut elementum ligula vestibulum. Maecenas posuere mattis tincidunt. Sed in orci risus. Aenean a velit volutpat libero faucibus placerat. Donec tempus lorem lectus, at pharetra metus luctus dapibus. Aenean pellentesque eleifend elit ac placerat. Praesent lacinia lacus leo, nec malesuada eros pellentesque at."
+        },
+        {
+            "title": "Bubbles surfing the wind",
+            "artwork": "/media/img/de2.png",
+            "detail": "Ut tristique non purus vitae mattis. Nullam ut elementum arcu. Quisque mollis tellus sed euismod gravida. Proin pharetra ante ut sapien tristique, sed ultricies est mattis. Fusce elementum hendrerit suscipit. Fusce pellentesque massa vel nisi blandit volutpat. Cras euismod cursus eleifend. In eget lacinia justo. Nam accumsan, tortor eu tristique dapibus, mi lacus aliquet lacus, eget tempus ipsum enim id mi. Curabitur condimentum felis et tristique varius. Etiam felis enim, auctor in maximus id, tempor id urna. Morbi in porta risus, vitae tristique nisl. Nulla sed elementum velit, ac venenatis arcu. Aliquam erat volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus."
+        },
+        {
+            "title": "Somewhere in the dust",
+            "artwork": "/media/img/ttt-1.png",
+            "detail": "Nam scelerisque elit ac risus malesuada finibus. Mauris dignissim lobortis ligula, at tempus sapien tincidunt quis. Nam luctus ornare nisl suscipit efficitur. Phasellus in tempus risus, eu mattis mauris. Donec est justo, hendrerit at tristique at, mollis eu tellus. Vivamus eu tellus tellus. Curabitur posuere, ante quis maximus viverra, purus ipsum ornare dui, non porttitor erat ex aliquam magna. Nam lobortis euismod lectus nec tempus. Integer ac porttitor ante. Mauris nisl nisl, dictum vel molestie sed, imperdiet in augue. Praesent condimentum magna sit amet finibus tristique."
+        },
+        {
+            "title": "To future hope",
+            "artwork": "/media/img/ttt-2.png",
+            "detail": "In sed augue eget sapien consequat venenatis a congue ex. Nam sit amet pellentesque risus. Proin dictum est quis ante vestibulum condimentum. Duis eleifend ornare sapien in ultrices. Nulla scelerisque erat orci, in rhoncus mi ornare eget. Fusce id dui odio. Cras leo risus, efficitur a neque quis, cursus rutrum arcu. Aliquam ornare feugiat sapien, eu ullamcorper neque. Vestibulum sed consectetur tellus. Etiam gravida lacus ut orci pharetra convallis. Fusce convallis odio sed sollicitudin iaculis."
+        }
+    ]
+}
