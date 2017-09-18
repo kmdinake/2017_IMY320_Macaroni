@@ -49,3 +49,5 @@ ___
 1. Neil Tortorella, 2004, Crafting the Perfect Design Proposal, viewed 15 August 2017, http://www.graphics.com/article-old/crafting-perfect-design-proposal.
 2. Nick Babich, 2017, Do’s and Don’ts of Web Design, viewed 18 August 2017, https://uxplanet.org/dos-and-don-ts-of-web-design-8c9d6a5de7c6.
 3. Preece, J., Rogers, Y. & Sharp, H., 2002, Interaction Design: Beyond Human-Computer Interaction, Wiley J.
+---
+# https://kmdinake.github.io/2017_IMY320_Macaroni/
