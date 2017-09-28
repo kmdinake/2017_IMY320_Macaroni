@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Heart of Toria | Story Board</title>
         <style type="text/css">
-            .container{
+            /*.container{
                 width: 99vw;
                 background-color: #000;
             }
@@ -20,7 +20,6 @@
                 flex: 1;
                 text-align: center;
             }
-<<<<<<< HEAD
             .scene-sc-1{
                 background-color: #ef5350;
             }
@@ -31,7 +30,8 @@
                 background-color: #26C6DA;
             }
             .scene-sc-4{
-=======
+                background-color: #9CCC65;
+            }
             .chapter-1{
                 background-color: #ef5350;
             }
@@ -42,7 +42,6 @@
                 background-color: #26C6DA;
             }
             .chapter-4{
->>>>>>> 0100ff4594d353818a129fda19958eb309dfd0c3
                 background-color: #9CCC65;
             }
             .board{
@@ -66,7 +65,7 @@
                 font-size: 20px;
             }
             /* Chapter themes and transitions */
-            .theme-1{
+            /*.theme-1{
                 background-color: #ef5350;
             }
             .theme-2{
@@ -78,30 +77,91 @@
             .theme-4{
                 background-color: #9CCC65;
             }
+            */
+             body {
+              background-color: #FF5A5A;
+              height: 100%;
+              font-family: 'tradegothiclt-bold', sans-serif;
+            }
+
+            h1 {
+              font-size: 5em;
+              color: white;
+              text-transform: uppercase;
+            }
+
+            span {
+              border-right: .05em solid;
+              animation: caret 1s steps(1) infinite;
+            }
+
+            @keyframes caret {
+              50% {
+                border-color: transparent;
+              }
+            }
         </style>
         <script src="js/jquery-2.1.3.min.js" ></script>
         <script type="text/javascript" src="js/base.js"></script>
     </head>
     <body>
-        <div class="container">
+        <!--<div class="container">
             <div class="chapters">
-<<<<<<< HEAD
-                <div class="scene scene-sc-1">Chapter 1</div>
-                <div class="scene scene-sc-2">Chapter 2</div>
-                <div class="scene scene-sc-3">Chapter 3</div>
-                <div class="scene scene-sc-4">Chapter 4</div>
-=======
                 <div class="chapter chapter-1">Chapter 1</div>
                 <div class="chapter chapter-2">Chapter 2</div>
                 <div class="chapter chapter-3">Chapter 3</div>
                 <div class="chapter chapter-4">Chapter 4</div>
->>>>>>> 0100ff4594d353818a129fda19958eb309dfd0c3
             </div>
             <div class="board">
                 <div class="title">Title</div>
                 <div class="artwork">Artwork</div>
                 <div class="detail">Detail</div>
             </div>
-        </div>
+        </div>-->
+        <h1>Hallo, Wij zijn Occhio!</h1>
+        <button onclick="myTypeWriter();">Hit Me</button>
+        <script type="text/javascript">
+            // array with texts to type in typewriter
+            var dataText = [ "Amsterdam.", "Full Service.", "Webdevelopment.", "Wij zijn Occhio!"];
+
+            function myTypeWriter(){
+                StartTextAnimation(0);
+            }
+
+            // type one text in the typwriter
+            // keeps calling itself until the text is finished
+            // start a typewriter animation for a text in the dataText array
+            function StartTextAnimation(i) {
+                if (typeof dataText[i] == 'undefined'){
+                    setTimeout(function() {
+                        StartTextAnimation(0);
+                    }, 20000);
+                }
+                // check if dataText[i] exists
+                if (dataText[i] !== undefined && dataText[i] !== null && i < dataText[i].length) {
+                    // text exists! start typewriter animation
+                    typeWriter(dataText[i], 0, function(){
+                    // after callback (and whole text has been animated), start next text
+                        StartTextAnimation(i + 1);
+                    });
+                }
+            }
+
+            function typeWriter(text, i, fnCallback) {
+              // chekc if text isn't finished yet
+                if (i < (text.length)) {
+                    document.querySelector("h1").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+                    // wait for a while and call this function again for next character
+                    setTimeout(function() {
+                        typeWriter(text, i + 1, fnCallback)
+                    }, 100);
+                }
+                else if (typeof fnCallback == 'function') {
+                    // text finished, call callback if there is a callback function
+                    // call callback after timeout
+                    setTimeout(fnCallback, 700);
+                }
+            }
+        </script>
     </body>
 </html>
