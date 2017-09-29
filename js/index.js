@@ -1,6 +1,6 @@
-        var dataText = [ 
+        var dataText = [
           "One day there was virus that hit the earth and changed mankind as we know it. All the old cultures,traditions and ideas that we believed to be our reality was reduced to a single term \“ Old Earth\”.",
-         "Before the dust settled a new regime was born and it proceeded to take the Earth and remains of the Earth and it kept the spirits of man down. After years of planning and preparation, a broken man haunted by memories of the Old Earth and unanswered questions", 
+         "Before the dust settled a new regime was born and it proceeded to take the Earth and remains of the Earth and it kept the spirits of man down. After years of planning and preparation, a broken man haunted by memories of the Old Earth and unanswered questions",
          "Our hero sets out to go to the Heart of Toria and tries to save the world after receiving actionable intelligence about the base location of the regime that ascended as the Old Earth fell to the ashes. With the Heart of Toria being rumored to be impenetrable to normal men.Our noble hero chased whispers of a man, who is said to have built the impenetrable walls of Toria a hacker time once knew as Phase to enlist alongside noble soldiers in his strike at the Heart of Toria. "
          ];
 
@@ -34,7 +34,7 @@
               // chekc if text isn't finished yet
                 if (i < (text.length)) {
                      //   console.log(document.querySelectorAll("div.left.typewrite").length);
-                    document.querySelectorAll("div.left.typewrite").forEach(function(el) {                    
+                    document.querySelectorAll("div.left.typewrite").forEach(function(el) {
                         el.innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
                     // wait for a while and call this function again for next character
                     });
@@ -58,7 +58,7 @@
                         $(".btn-4").click();
                         $(".btn-1").click();
                     }
-                    /*else*/ 
+                    /*else*/
                    // setTimeout(fnCallback, 700);
                 }
             }
@@ -87,15 +87,15 @@ $(document).ready(function () {
         var sceneBottomFlag= false;
 
         $('body').on( 'DOMMouseScroll mousewheel', function ( event ) {
-           console.log("up");    
+           console.log("up");
             if( event.originalEvent.detail > 0 || event.originalEvent.wheelDelta < 0 ) { //alternative options for wheelData: wheelDeltaX & wheelDeltaY
                $("#joey").css("transform", "scaleX(-1)");
-                $("#joey").animate({left: "-=10px"});  
+                $("#joey").animate({left: "-=10px"});
             } else {
              //   if(!locked)
                // up();
                $("#joey").css("transform", "scaleX(1)");
-                $("#joey").animate({left:"+=10px"});           
+                $("#joey").animate({left:"+=10px"});
             }
             //prevent page fom scrolling
             return false;
@@ -103,53 +103,58 @@ $(document).ready(function () {
 
 
         $(".btn-2").click(function(){
-            if( timeOut != null )
+            resetScene();
+            if(timeOut != null){
                 clearTimeout(timeOut);
-    
+            }
 
             if(!sceneTopFlag){
                 openSceneTop();
                 StartTextAnimation(0);
             }
-            else 
+            else{
                 closeSceneTop();
-
-            sceneTopFlag =!sceneTopFlag;
-            part=2;
+            }
+            sceneTopFlag = !sceneTopFlag;
+            part = 2;
         });
 
         $(".btn-3").click(function(){
-            if( timeOut != null )
+            resetScene();
+            if(timeOut != null){
                 clearTimeout(timeOut);
-    
-            closeSceneBottom();
-            
+            }
+
             if(!sceneBottomFlag){
                 StartTextAnimation(1);
-                openSceneBottom();                
+                openSceneBottom();
             }
             else {
+                closeSceneBottom();
             }
-            sceneBottomFlag =!sceneBottomFlag;
-            part=3;
+
+            sceneBottomFlag = !sceneBottomFlag;
+            part = 3;
         });
 
         $(".btn-4").click(function(){
-            if( timeOut != null )
+            resetScene();
+            if( timeOut != null ){
                 clearTimeout(timeOut);
-            
+            }
+
             if(!sceneRightFlag){
                 StartTextAnimation(2);
                 openSceneRight();
-    //            console.log("awe");
-            }    
+            }
             else {
                 closeSceneRight();
             }
-            sceneRightFlag =!sceneRightFlag;
-            part=4;
+
+            sceneRightFlag = !sceneRightFlag;
+            part = 4;
         });
- 
+
 
         function openSceneTop(){
             $('.row1').animate({height:"100vh"});
@@ -174,9 +179,9 @@ $(document).ready(function () {
         function openSceneRight(){
             $('.sceneRight').animate({width:"100%"});
             $('.sceneOrigin').animate({width:"0%"});
-
             $('.sceneRight').animate({height:"100%"});
             $('.sceneOrigin').animate({height:"0%"});
+            // closeMain(); -> not needed because right scene uses main
         }
 
         function closeSceneRight(){
@@ -187,14 +192,27 @@ $(document).ready(function () {
             openMain();
         }
 
-
         function closeMain(){
-            
             $('#main').animate({height:"0vh"});
         }
 
         function openMain(){
             $('#main').animate({height:"100vh"});
         }
-              
+
+        function resetScene(){
+            if (sceneTopFlag){
+                closeSceneTop();
+                sceneTopFlag = false;
+            } else if (sceneBottomFlag){
+                closeSceneBottom();
+                sceneBottomFlag = false;
+            } else if (sceneRightFlag){
+                closeSceneRight();
+                sceneRightFlag = false;
+            } else {
+                console.log("Something is faulty in the resetScene()");
+            }
+        }
+
     });

@@ -89,9 +89,9 @@ flex-direction: row;
 
 .left{
     padding: 10% 5%;
-    background: #000;  
+    background: #000;
     font-size: 32px;
-    color: rgba(240, 240, 240, 0.6); 
+    color: rgba(240, 240, 240, 0.6);
 }
 
 .right ,.left{
@@ -140,17 +140,20 @@ div.btn{
     width: 25%;
     font-size: 32px;
     cursor: pointer;
-    
+
 }
 
 div.btn.btn-2{
-    background: yellow;   
+    background: yellow;
 }
 
 div.btn.btn-3{
-    background: blue;   
+    background: blue;
 }
 
+div.btn.btn-4{
+    background: green;
+}
 /*
 body,html{
     background: #E57979;
@@ -205,7 +208,7 @@ div.scene-sc{
 
 div.lil-guy{
     height: 20vh;
-    width: 20vw;  
+    width: 20vw;
     margin-left: 5vh;
 }
 
@@ -220,7 +223,7 @@ div.lil-guy{
 }
 
 #scene-1{
- 
+
     width:100vw;
     height: 100vh;
     background: #A921C5;
