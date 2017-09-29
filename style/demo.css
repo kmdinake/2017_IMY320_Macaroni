@@ -20,14 +20,14 @@ body {
 
 /* Color schemes */
 .demo-2 {
-	--color-text: #000000;
-    --color-bg: #000;
-    --color-link: #000000;
-    --color-link-hover: #FFFFFF;
-    --color-grid-text-1: #3ddbe2;
-    --color-grid-text-2: #000000;
+	--color-text: #FFFFFF;
+    --color-bg: #FFFFFF;
+    --color-link: #F9F9F9;
+    --color-link-hover: #ED4D4D;
+    --color-grid-text-1: #FFFFFF;
+    --color-grid-text-2: #FFFFFF;
 	--color-grid-text-3: #ffffff;
-	--color-main: #3ddbe2;
+	--color-main: #000000;
     --font-grid: 'Archivo Black', sans-serif;
 }
 

@@ -42,7 +42,7 @@
 
 .slice {
 	position: relative;
-	overflow: hidden;
+/*	overflow: hidden;*/
 }
 
 .slice__inner {
