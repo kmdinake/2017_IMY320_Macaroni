@@ -1,95 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/animate.css">
-    <script src="js/anime.min.js"></script>
-    <script src="js/jquery-2.1.3.min.js" ></script>
-        <script src="js/index.js">
-        </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Heart of Toria</title>
-</head>
-<body>
-    <div class="shortcut-bar">
-       <!-- <img id="joey" class="lilGuy" src="media/img/walkingJoey.gif" />
-       --><div class="btn animated pulse infinite"></div>
-        <div class="btn btn-2" ></div>
-        <div class="btn btn-3" ></div>
-        <div class="btn btn-4" ></div>
-    </div>
-    <div class="row row1">
-            <div class="hori-scene sceneTop">
-                    <div class="left typewrite">
-                     <!--    One day there was virus that hit the earth and changed mankind as we know it.
-                        All the old cultures,traditions and ideas that we believed to be our reality was reduced to a single term “ Old Earth”.
-                     --></div>
-                    <div class="right">
-                        <video src="media/joey1.mp4" autoplay loop muted ></video>
-                    </div>
-            </div>
-    </div>
-    <div class="row row2" id="main">
-        <div class="verti-scene sceneOrigin"></div>
-        <div class="sceneRight">
-                <div class="left typewrite">
-                   <!--  Before the dust settled a new regime was born and it proceeded to take the Earth and remains of the Earth and
-                     it kept the spirits of man down. After years of planning and preparation, a broken man haunted by memories of the Old Earth and unanswered questions?
-                   -->
-                </div>
-                <div class="right">
-                    <img class="lrg" src="media/img/phaseGlasses.gif" />
-                </div>
-        </div>
-    </div>
-    <div class="row row3">
-            <div class="hori-scene sceneBottom">
-                <div class="left typewrite">
-                      <!-- Our hero Sets out to go to the Heart of Toria and tries to save the world after receiving actionable intelligence about the base location of the regime that ascended as the Old Earth fell to the ashes.
-                        With the Heart of Toria being rumored to be impenetrable to normal men.
-                        Our noble hero chased whispers of a man, who is said to have built the impenetrable walls of Toria a hacker time once knew as Phase to enlist alongside noble soldiers in his strike at the Heart of Toria. 
-                      -->
-                </div>
-                <div class="right">
-                  <!--  <img id="up" class="lilGuy" src="media/img/up.gif" />
-                  -->
-                  <img class="lrgr" src="media/img/army.png" />
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Heart of Toria</title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700|Archivo+Black" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="style/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="style/demo.css" />
+		<link rel="stylesheet" type="text/css" href="style/component.css" />
+		<!--<link rel="stylesheet" type="text/css" href="style/pater.css" />-->
+		<script>document.documentElement.className = 'js';</script>
+	</head>
+	<body class="demo-2 loading">
+		<main>
+			<div class="slices"></div>
+			<div class="slides">
+				<div class="slide grid slide--current" id="slide-1" data-image-even='img/4_1.png' data-image-odd='img/4_.png'>
+					<div class="grid__item">Heart of Toria</div>
+					<div class="grid__item grid__item--deco-1">Intercom Creation</div>
+					<div class="grid__item">Hub</div>
+					<div class="grid__item">Point</div>
+				</div>
+				<div class="slide grid" id="slide-2" data-image-even='img/5_1.jpg' data-image-odd='img/5_2.jpg'>
+					<!--<div class="grid__item">About</div>
+					<div class="grid__item grid__item--deco-1">Density Population</div>
+					<div class="grid__item">Rick's</div>
+					<div class="grid__item">Place</div>-->
+				</div>
+				<div class="slide grid" id="slide-3" data-image-even='img/6_1.jpg' data-image-odd='img/6_2.jpg'>
+					<!--<div class="grid__item">The Developers</div>
+					<div class="grid__item grid__item--deco-1">Fashion Trivialities</div>
+					<div class="grid__item">QXF</div>
+					<div class="grid__item">Dome</div>-->
+				</div>
+				<nav class="slides__nav">
+					<a href="#slide-1" class="slides__nav-item slides__nav-item--current">Home</a>
+					<a href="#slide-2" class="slides__nav-item">Game</a>
+					<a href="#slide-3" class="slides__nav-item">The Developers</a>
+				</nav>
+				<div class="date">Release &rarr; 16 October 2017</div>
+			</div>
+		</main>
+		<script src="js/charming.min.js"></script>
+		<script src="js/anime.min.js"></script>
+		<script src="js/imagesloaded.pkgd.min.js"></script>
+		<script src="js/demo.js"></script>
+		<script src="js/glitchFx.js"></script>
+		<script src="js/dil.js"></script>
+		<script>
+		{
+			const slidesItems = Array.from(document.querySelectorAll('.slides > .slide'));
+			const imgs = {even:[],odd:[]};
+			slidesItems.forEach((item) => {
+				imgs.even.push(item.dataset.imageEven);
+				imgs.odd.push(item.dataset.imageOdd);
+			});
 
-                </div>
-            </div>
-    </div>
-<!--        <span id="closeScene" class="cross">X2</span>
-    <div class="blue scene" id="scene-3">
-        <div class="left">
-        </div>
-        <div class="right">
-        </div>
-    </div>
-    <div class="box">
-        <div class="scene" id="scene-1">
+			const dil = new DualImageLayout(document.querySelector('.slices'), {
+				images: {even: imgs.even[0],odd: imgs.odd[0]},
+				slices: 100
+			});
 
-                <div class="lil guy">
-                   <img id="joey" src="media/img/idleNoMusic.gif" alt="">
-                </div>
-        </div>
-        <div class="scene" id="scene-4">
-            <div class="left">
-            </div>
-            <div class="right">
-            </div>
-        </div>
-    </div>
-    </div>
-    <div class="scene" id="scene-2">
-            <div class="left">
+			imagesLoaded(document.body, { background: true }, () => {
+               	document.body.classList.remove('loading');
+				animateGridItems();
+            });
 
-            </div>
-            <div class="right">
-            </div>
-    </div>
--->
-</body>
+			let isAnimating = true;
+			let currentSlide = 0;
+			const slidesNavItems = Array.from(document.querySelectorAll('.slides__nav > .slides__nav-item'));
+			const changeLocation = (ev,pos) => {
+				ev.preventDefault();
+				if ( pos === currentSlide || isAnimating ) {
+					return false;
+				}
+
+				ev.target.classList.add('slides__nav-item--current');
+				slidesNavItems[currentSlide].classList.remove('slides__nav-item--current');
+
+				animateGridItems(currentSlide,pos);
+				currentSlide = pos;
+				dil.switchImages(imgs.even[currentSlide],imgs.odd[currentSlide],true);
+				setTimeout(function(){
+					if (currentSlide === 1) {
+						window.location = 'splash.html';
+					}
+				}, 1450);
+			};
+			slidesNavItems.forEach((item, pos) => item.addEventListener('click', (ev) => changeLocation(ev,pos)));
+
+			const gridItemsLetters = [];
+			slidesItems.forEach((item) => {
+				Array.from(item.querySelectorAll('.grid__item')).forEach((gridItem) => charming(gridItem));
+				gridItemsLetters.push(Array.from(item.querySelectorAll('span')));
+			});
+
+			const animateGridItems = (currentSlide = -1, pos = 0) => {
+				isAnimating = true;
+				const newLettersFn = () => {
+					const promises = [];
+					for (lettersGroup of gridItemsLetters[pos]) {
+						promises.push(anime({
+							targets: lettersGroup,
+							duration: 900,
+							elasticity: 600,
+							delay: (t,i) => anime.random(200,1000),
+							opacity: {
+								value: [0,1],
+								duration: 20,
+								easing: 'linear'
+							},
+							scale: [0,1],
+							before: () => lettersGroup.style.opacity = 0
+						}).finished);
+					}
+					Promise.all(promises).then(()=> isAnimating = false);
+				};
+
+				if ( currentSlide !== -1 ) {
+					const promises = [];
+					for (lettersGroup of gridItemsLetters[currentSlide]) {
+						promises.push(anime({
+							targets: lettersGroup,
+							duration: 200,
+							easing: 'easeOutQuad',
+							delay: (t,i) => anime.random(200,1000),
+							opacity: 0,
+							scale: 0,
+							before: () => lettersGroup.style.opacity = 1
+						}).finished);
+					}
+					Promise.all(promises).then(()=> newLettersFn());
+				}
+				else {
+					newLettersFn();
+				}
+			};
+
+			const glitchText = document.querySelector('.date');
+			charming(glitchText);
+			Array.from(glitchText.querySelectorAll('span')).forEach(letter => {
+				letter.style.opacity = 1;
+				new GlitchFx(letter).glitch();
+			});
+
+			// Demo purposes only..
+			new GlitchFx(document.querySelector('.pater > .pater__img'), {
+				// Max and Min values for the time when to start the effect.
+                glitchStart: {min: 1000, max: 5000},
+                // Max and Min values of time that an element keeps each state.
+                glitchState: {min: 50, max: 100},
+                // Number of times the glitch action is performed per iteration.
+				glitchTotalIterations: 3
+			}).glitch();
+		}
+		</script>
+	</body>
 </html>

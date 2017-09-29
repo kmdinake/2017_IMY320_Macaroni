@@ -101,6 +101,9 @@ $(document).ready(function () {
             return false;
         });
 
+        $(".btn-1").click(function(){
+            window.location = "index.html";
+        });
 
         $(".btn-2").click(function(){
             resetScene();
@@ -203,13 +206,13 @@ $(document).ready(function () {
         function resetScene(){
             if (sceneTopFlag){
                 closeSceneTop();
-                sceneTopFlag = false;
+                //sceneTopFlag = false;
             } else if (sceneBottomFlag){
                 closeSceneBottom();
-                sceneBottomFlag = false;
+                //sceneBottomFlag = false;
             } else if (sceneRightFlag){
                 closeSceneRight();
-                sceneRightFlag = false;
+                //sceneRightFlag = false;
             } else {
                 console.log("Something is faulty in the resetScene()");
             }
