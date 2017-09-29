@@ -56,6 +56,22 @@ div.btn{
     background-position: center*/
 }
 
+img.lrg{
+    height:80%;
+    width:auto;
+}
+
+img.lrgr{
+    height:100%;
+    width:auto;
+}
+
+
+video{
+    height:100%;
+    width: auto;
+}
+
 .sceneRight{
     widows: 0%;
     height: 0%;
