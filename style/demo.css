@@ -4,10 +4,16 @@
 	box-sizing: border-box;
 }
 
+@font-face {
+  font-family: funHouse;
+  src: url("../fonts/Funhouse.ttf");
+}
+
+
 body {
 	--color-bg: #000;
 	--color-text: #fff;
-	font-family: "Roboto Mono", monospace;
+	font-family: funhouse, monospace;
 	background: #000;
 	background: var(--color-bg);
 	font-size: 15px;
@@ -28,7 +34,7 @@ body {
     --color-grid-text-2: #ED4D4D;
 	--color-grid-text-3: #ffffff;
 	--color-main: #000;
-    --font-grid: 'Archivo Black', sans-serif;
+    --font-grid: funhouse, 'Archivo Black', sans-serif;
 }
 
 /* Fade effect */
@@ -61,7 +67,7 @@ a:focus {
 /* Page Loader */
 .js .loading::before {
 	content: '';
-	position: fixed;
+	position: fixed;font-family
 	z-index: 100000;
 	top: 0;
 	left: 0;
@@ -83,13 +89,13 @@ a:focus {
 	background: var(--color-link);
 	transform-origin: 0% 50%;
 	animation: loaderAnim 1.5s linear infinite alternate forwards;
-}
+}font-family
 
 .demo-2.loading::after {
 	background: var(--color-grid-text-1);
 }
 
-@keyframes loaderAnim {
+@keyframes loaderAnim {font-family
 	0% {
 		transform: scale3d(0,1,1);
 		transform-origin: 0% 50%;
@@ -198,6 +204,7 @@ main {
 	flex-wrap: wrap;
 	white-space: pre;
 	align-items: flex-start;
+	margin-bottom: 100px;
 }
 
 .date span {
