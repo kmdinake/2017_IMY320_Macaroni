@@ -103,6 +103,10 @@ $(document).ready(function () {
 
 
         $(".btn-2").click(function(){
+            if( timeOut != null )
+                clearTimeout(timeOut);
+    
+
             if(!sceneTopFlag){
                 openSceneTop();
                 StartTextAnimation(0);
@@ -117,27 +121,31 @@ $(document).ready(function () {
         $(".btn-3").click(function(){
             if( timeOut != null )
                 clearTimeout(timeOut);
-
+    
+            closeSceneBottom();
+            
             if(!sceneBottomFlag){
                 StartTextAnimation(1);
                 openSceneBottom();                
             }
-            else 
-                closeSceneBottom();
-
+            else {
+            }
             sceneBottomFlag =!sceneBottomFlag;
             part=3;
         });
 
         $(".btn-4").click(function(){
+            if( timeOut != null )
+                clearTimeout(timeOut);
+            
             if(!sceneRightFlag){
                 StartTextAnimation(2);
                 openSceneRight();
     //            console.log("awe");
             }    
-            else 
+            else {
                 closeSceneRight();
-
+            }
             sceneRightFlag =!sceneRightFlag;
             part=4;
         });
