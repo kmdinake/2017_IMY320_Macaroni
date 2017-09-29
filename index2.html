@@ -15,30 +15,30 @@
 		<main>
 			<div class="slices"></div>
 			<div class="slides">
-				<div class="slide grid slide--current" id="slide-1" data-image-even='img/4_1.png' data-image-odd='img/4_.png'>
+				<div class="slide grid slide--current" id="slide-1" data-image-even='img/4_1.jpg' data-image-odd='img/4_2.jpg'>
 					<div class="grid__item">Heart of Toria</div>
 					<div class="grid__item grid__item--deco-1">Intercom Creation</div>
 					<div class="grid__item">Hub</div>
 					<div class="grid__item">Point</div>
 				</div>
 				<div class="slide grid" id="slide-2" data-image-even='img/5_1.jpg' data-image-odd='img/5_2.jpg'>
-					<!--<div class="grid__item">About</div>
+					<div class="grid__item">About</div>
 					<div class="grid__item grid__item--deco-1">Density Population</div>
 					<div class="grid__item">Rick's</div>
-					<div class="grid__item">Place</div>-->
+					<div class="grid__item">Place</div>
 				</div>
 				<div class="slide grid" id="slide-3" data-image-even='img/6_1.jpg' data-image-odd='img/6_2.jpg'>
-					<!--<div class="grid__item">The Developers</div>
+					<div class="grid__item">The Developers</div>
 					<div class="grid__item grid__item--deco-1">Fashion Trivialities</div>
 					<div class="grid__item">QXF</div>
-					<div class="grid__item">Dome</div>-->
+					<div class="grid__item">Dome</div>
 				</div>
 				<nav class="slides__nav">
-					<a href="#slide-1" class="slides__nav-item slides__nav-item--current">Home</a>
-					<a href="#slide-2" class="slides__nav-item">Game</a>
+					<a href="#slide-1" class="slides__nav-item slides__nav-item--current">Game</a>
+					<a href="#slide-2" class="slides__nav-item">About</a>
 					<a href="#slide-3" class="slides__nav-item">The Developers</a>
 				</nav>
-				<div class="date">Release &rarr; 16 October 2017</div>
+				<div class="date">3 &rarr; 10 Feb 2018</div>
 			</div>
 		</main>
 		<script src="js/charming.min.js"></script>
@@ -81,11 +81,6 @@
 				animateGridItems(currentSlide,pos);
 				currentSlide = pos;
 				dil.switchImages(imgs.even[currentSlide],imgs.odd[currentSlide],true);
-				setTimeout(function(){
-					if (currentSlide === 1) {
-						window.location = 'splash.html';
-					}
-				}, 1450);
 			};
 			slidesNavItems.forEach((item, pos) => item.addEventListener('click', (ev) => changeLocation(ev,pos)));
 

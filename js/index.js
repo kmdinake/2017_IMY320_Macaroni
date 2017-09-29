@@ -1,51 +1,163 @@
-    $(document).ready(function () {
+        var dataText = [
+          "One day there was virus that hit the earth and changed mankind as we know it. All the old cultures,traditions and ideas that we believed to be our reality was reduced to a single term \“ Old Earth\”.",
+         "Before the dust settled a new regime was born and it proceeded to take the Earth and remains of the Earth and it kept the spirits of man down. After years of planning and preparation, a broken man haunted by memories of the Old Earth and unanswered questions",
+         "Our hero sets out to go to the Heart of Toria and tries to save the world after receiving actionable intelligence about the base location of the regime that ascended as the Old Earth fell to the ashes. With the Heart of Toria being rumored to be impenetrable to normal men.Our noble hero chased whispers of a man, who is said to have built the impenetrable walls of Toria a hacker time once knew as Phase to enlist alongside noble soldiers in his strike at the Heart of Toria. "
+         ];
+
+
+         var part = 0;
+         var timeOut ;
+            function myTypeWriter(){
+                StartTextAnimation(0);
+            }
+
+            // type one text in the typwriter
+            // keeps calling itself until the text is finished
+            // start a typewriter animation for a text in the dataText array
+            function StartTextAnimation(i) {
+                if (typeof dataText[i] == 'undefined'){
+                    setTimeout(function() {
+                        StartTextAnimation(i);
+                    }, 20000);
+                }
+                // check if dataText[i] exists
+                if (dataText[i] !== undefined && dataText[i] !== null && i < dataText[i].length) {
+                    // text exists! start typewriter animation
+                    typeWriter(dataText[i], 0, function(){
+                    // after callback (and whole text has been animated), start next text
+                        StartTextAnimation(i + 1);
+                    });
+                }
+            }
+
+            function typeWriter(text, i, fnCallback) {
+              // chekc if text isn't finished yet
+                if (i < (text.length)) {
+                     //   console.log(document.querySelectorAll("div.left.typewrite").length);
+                    document.querySelectorAll("div.left.typewrite").forEach(function(el) {
+                        el.innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+                    // wait for a while and call this function again for next character
+                    });
+                    timeOut =setTimeout(function() {
+                        typeWriter(text, i + 1, fnCallback)
+                    }, 100);
+                }
+                else if (typeof fnCallback == 'function') {
+                    // text finished, call callback if there is a callback function
+                    // call callback after timeout
+                    if(part==2){
+                        $(".btn-2").click();
+                        $(".btn-3").click();
+                        console.log("part2 == 2");
+                    }
+                    else if(part==3){
+                        $(".btn-3").click();
+                        $(".btn-4").click();
+                    }
+                    else if(part==4){
+                        $(".btn-4").click();
+                        $(".btn-1").click();
+                    }
+                    /*else*/
+                   // setTimeout(fnCallback, 700);
+                }
+            }
+
+
+window.onload = function() {
+    var elements = document.getElementsByClassName('typewrite');
+    for (var i=0; i<elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-type');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+          new TxtType(elements[i], JSON.parse(toRotate), period);
+        }
+    }
+    // INJECT CSS
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+    document.body.appendChild(css);
+};
+
+$(document).ready(function () {
         var sceneTopFlag= false;
         var sceneSceneFlag= false;
         var sceneRightFlag= false;
         var sceneBottomFlag= false;
 
         $('body').on( 'DOMMouseScroll mousewheel', function ( event ) {
-           console.log("up");    
+           console.log("up");
             if( event.originalEvent.detail > 0 || event.originalEvent.wheelDelta < 0 ) { //alternative options for wheelData: wheelDeltaX & wheelDeltaY
                $("#joey").css("transform", "scaleX(-1)");
-                $("#joey").animate({left: "-=10px"});  
+                $("#joey").animate({left: "-=10px"});
             } else {
              //   if(!locked)
                // up();
                $("#joey").css("transform", "scaleX(1)");
-                $("#joey").animate({left:"+=10px"});           
+                $("#joey").animate({left:"+=10px"});
             }
             //prevent page fom scrolling
             return false;
         });
 
-        $(".btn-2").click(function(){
-            if(!sceneTopFlag)
-                openSceneTop();
-            else 
-                closeSceneTop();
+        $(".btn-1").click(function(){
+            window.location = "index.html";
+        });
 
-            sceneTopFlag =!sceneTopFlag;
+        $(".btn-2").click(function(){
+            resetScene();
+            if(timeOut != null){
+                clearTimeout(timeOut);
+            }
+
+            if(!sceneTopFlag){
+                openSceneTop();
+                StartTextAnimation(0);
+            }
+            else{
+                closeSceneTop();
+            }
+            sceneTopFlag = !sceneTopFlag;
+            part = 2;
         });
 
         $(".btn-3").click(function(){
-            if(!sceneBottomFlag)
-                openSceneBottom();
-            else 
-                closeSceneBottom();
+            resetScene();
+            if(timeOut != null){
+                clearTimeout(timeOut);
+            }
 
-            sceneBottomFlag =!sceneBottomFlag;
+            if(!sceneBottomFlag){
+                StartTextAnimation(1);
+                openSceneBottom();
+            }
+            else {
+                closeSceneBottom();
+            }
+
+            sceneBottomFlag = !sceneBottomFlag;
+            part = 3;
         });
 
         $(".btn-4").click(function(){
-            if(!sceneRightFlag)
-                openSceneRight();
-            else 
-                closeSceneRight();
+            resetScene();
+            if( timeOut != null ){
+                clearTimeout(timeOut);
+            }
 
-            sceneRightFlag =!sceneRightFlag;
+            if(!sceneRightFlag){
+                StartTextAnimation(2);
+                openSceneRight();
+            }
+            else {
+                closeSceneRight();
+            }
+
+            sceneRightFlag = !sceneRightFlag;
+            part = 4;
         });
- 
+
 
         function openSceneTop(){
             $('.row1').animate({height:"100vh"});
@@ -70,9 +182,9 @@
         function openSceneRight(){
             $('.sceneRight').animate({width:"100%"});
             $('.sceneOrigin').animate({width:"0%"});
-
             $('.sceneRight').animate({height:"100%"});
             $('.sceneOrigin').animate({height:"0%"});
+            // closeMain(); -> not needed because right scene uses main
         }
 
         function closeSceneRight(){
@@ -83,105 +195,27 @@
             openMain();
         }
 
-
         function closeMain(){
-            
             $('#main').animate({height:"0vh"});
         }
 
         function openMain(){
             $('#main').animate({height:"100vh"});
         }
-    /*
-        $('.scene-sc-2').click(function(){
-            s2O=true;
-            openScene2();
-        });
-        
-        $('.scene-sc-3').click(function(){
-            s3O=true;
-            openScene3();
-        });
-        
-        $('.scene-sc-4').click(function(){
-            s4O=true;
-            openScene4();
-        });
 
-        $('#closeScene4').click(function(){
-            closeScene4();  console.log("close scene 4"); 
-            alert("");  
-        });
-
-        $('#closeScene').click(function(){
-            closeScene3();
-            if(s4O){
-                closeScene4();
+        function resetScene(){
+            if (sceneTopFlag){
+                closeSceneTop();
+                //sceneTopFlag = false;
+            } else if (sceneBottomFlag){
+                closeSceneBottom();
+                //sceneBottomFlag = false;
+            } else if (sceneRightFlag){
+                closeSceneRight();
+                //sceneRightFlag = false;
+            } else {
+                console.log("Something is faulty in the resetScene()");
             }
-            
-            if(s3O)
-                closeScene3();
-
-            if(s2O)
-                    closeScene2();    
-            
-        });
-
-        $('#closeScene2').click(function(){
-            closeScene2();
-        });
-
-
-        function openScene2(){
-            $('#sceneTop').animate({height:"100vh"});
-            $('#sceneOrigin').animate({height:"0vh"});
-            $('#sceneOrgin').animate({padding:"0"},"0");
-          //  $('#closeScene2').css("visibility","visible");
-          $('#scene-1  *').animate({opacity:"0%"},"slow");
-          
         }
 
-        function closeScene2(){
-            $('#scene-2').animate({height:"0vh"});
-            $('#scene-1').animate({height:"100vh"});
-            $('#scene-1').animate({padding:"5vh"},"0");
-            
-            $('#scene-2  *').animate({opacity:"0%"},"slow");
-        }
-        
-        function openScene3(){
-           // $('#closeScene3').css("visibility","visible");
-            $('#scene-3').animate({height:"100vh"});
-            $('#scene-1').animate({height:"0vh"});
-            $('#scene-2').animate({padding:"0"},"0");        
-            
-          //  if(opens4)
-            //    closeScene4();
-            $('#scene-3  0').animate({opacity:"0%"},"slow");
-        }
-
-        function closeScene3(){
-            $('#scene-3').animate({height:"0vh"});
-            $('#scene-1').animate({height:"100vh"});
-            $('#scene-2').animate({padding:"5vh"},"0");            
-        }
-
-        function openScene4(){
-            //$('#closeScene4').css("visibility","visible");
-            openS4= true;
-            $('#scene-1').animate({padding:"0"},"0");            
-            $('#scene-1').animate({width:"0"},"0");            
-            $('#scene-4').animate({width:"100vh"},"0");   
-            $('#scene-1  *').hide();    
-            $('#scene-1  *').animate({opacity:"0%"},"slow");
-            
-        }
-
-        function closeScene4(){
-                $('#scene-4').animate({width:"0"},"0");              
-                $('#scene-1').animate({padding:"5vh"},"0");            
-                $('#scene-1').animate({width:"100vh"},"0");            
-                console.log("close scene 4");          
-        }
-      */              
     });

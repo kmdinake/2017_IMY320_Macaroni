@@ -5,7 +5,6 @@ IMY 320 Group Project aimed to developing a website that promotes a game that's 
 # Team
 1. Keoagile Dinake - 15041744
 2. Joe Malope - 15221777
-3. Khodani Mufamadi - 14197520
 ---
 # Overview
 This document aims to provide a formal design proposal of Macaroni Ink by explaining the objectives, specifications, design concepts, target audience, and project management of our game (Heart of Toria) as well was convey the look and feel of the website. Macaroni Ink  was developed by Joe Malope, and intended for the following purposes.
@@ -49,3 +48,9 @@ ___
 1. Neil Tortorella, 2004, Crafting the Perfect Design Proposal, viewed 15 August 2017, http://www.graphics.com/article-old/crafting-perfect-design-proposal.
 2. Nick Babich, 2017, Do’s and Don’ts of Web Design, viewed 18 August 2017, https://uxplanet.org/dos-and-don-ts-of-web-design-8c9d6a5de7c6.
 3. Preece, J., Rogers, Y. & Sharp, H., 2002, Interaction Design: Beyond Human-Computer Interaction, Wiley J.
+---
+# Website Url
+## https://kmdinake.github.io/2017_IMY320_Macaroni/
+---
+# Usability Test Form
+## https://goo.gl/forms/48GY4ERTbGIkivPp2
