@@ -55,6 +55,7 @@ div.btn {
 }
 
 #sampleMovie {
+  margin: 5%;
   width: 100vw;
   height: auto;
 }
