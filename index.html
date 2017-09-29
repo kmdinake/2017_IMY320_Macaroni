@@ -1,89 +1,93 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Heart of Toria</title>
-		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700|Archivo+Black" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="style/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="style/demo.css" />
-		<link rel="stylesheet" type="text/css" href="style/component.css" />
-		<!--<link rel="stylesheet" type="text/css" href="style/pater.css" />-->
-		<script>document.documentElement.className = 'js';</script>
-	</head>
-	<body class="demo-2 loading">
-		<main>
-			<div class="slices"></div>
-			<div class="slides">
-				<div class="slide grid slide--current" id="slide-1" data-image-even='img/4_1.png' data-image-odd='img/4_.png'>
-					<div class="grid__item">Heart of Toria</div>
-					<div class="grid__item grid__item--deco-1">Intercom Creation</div>
-					<div class="grid__item">Hub</div>
-					<div class="grid__item">Point</div>
-				</div>
-				<div class="slide grid" id="slide-2" data-image-even='img/5_1.jpg' data-image-odd='img/5_2.jpg'>
-				</div>
-				<div class="slide grid" id="slide-3" data-image-even='img/4_1_g.png' data-image-odd='img/4_.png'>
-					<div class="grid__item">The Developers</div>
-					<div class="grid__item grid__item--deco-1">Meet the Awesome Team</div>
-					<div class="grid__item" style="font-size: 50px;">Joe Malope</div>
-					<div class="grid__item" style="font-size: 50px;">Keoagile Dinake</div>
-				</div>
-				<nav class="slides__nav">
-					<a href="#slide-1" class="slides__nav-item slides__nav-item--current">Home</a>
-					<a href="#slide-2" class="slides__nav-item">Game</a>
-					<a href="#slide-3" class="slides__nav-item">The Developers</a>
-				</nav>
-				<div class="date">Release &rarr; 16 October 2017</div>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Heart of Toria</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700|Archivo+Black" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="style/demo.css" />
+	<link rel="stylesheet" type="text/css" href="style/component.css" />
+	<!--<link rel="stylesheet" type="text/css" href="style/pater.css" />-->
+	<script>
+		document.documentElement.className = 'js';
+	</script>
+</head>
+
+<body class="demo-2 loading">
+	<main>
+		<div class="slices"></div>
+		<div class="slides">
+			<div class="slide grid slide--current" id="slide-1" data-image-even='img/4_1.png' data-image-odd='img/4_.png'>
+				<div class="grid__item">Heart of Toria</div>
+				<div class="grid__item grid__item--deco-1">An untold story</div>
+				<div class="grid__item">Old</div>
+				<div class="grid__item">Earth</div>
 			</div>
-		</main>
-		<script src="js/charming.min.js"></script>
-		<script src="js/anime.min.js"></script>
-		<script src="js/imagesloaded.pkgd.min.js"></script>
-		<script src="js/demo.js"></script>
-		<script src="js/glitchFx.js"></script>
-		<script src="js/dil.js"></script>
-		<script>
+			<div class="slide grid" id="slide-2" data-image-even='img/5_1.jpg' data-image-odd='img/5_2.jpg'>
+			</div>
+			<div class="slide grid" id="slide-3" data-image-even='img/4_1_g.png' data-image-odd='img/4_.png'>
+				<div class="grid__item">The Developers</div>
+				<div class="grid__item grid__item--deco-1">Meet the Awesome Team</div>
+				<div class="grid__item" style="font-size: 50px;">Joe Malope</div>
+				<div class="grid__item" style="font-size: 50px;">Keoagile Dinake</div>
+			</div>
+			<nav class="slides__nav">
+				<a href="#slide-1" class="slides__nav-item slides__nav-item--current">Home</a>
+				<a href="#slide-2" class="slides__nav-item">Game</a>
+				<a href="#slide-3" class="slides__nav-item">The Developers</a>
+			</nav>
+			<div class="date">Release &rarr; 16 October 2017</div>
+		</div>
+	</main>
+	<script src="js/charming.min.js"></script>
+	<script src="js/anime.min.js"></script>
+	<script src="js/imagesloaded.pkgd.min.js"></script>
+	<script src="js/demo.js"></script>
+	<script src="js/glitchFx.js"></script>
+	<script src="js/dil.js"></script>
+	<script>
 		{
 			const slidesItems = Array.from(document.querySelectorAll('.slides > .slide'));
-			const imgs = {even:[],odd:[]};
+			const imgs = { even: [], odd: [] };
 			slidesItems.forEach((item) => {
 				imgs.even.push(item.dataset.imageEven);
 				imgs.odd.push(item.dataset.imageOdd);
 			});
 
 			const dil = new DualImageLayout(document.querySelector('.slices'), {
-				images: {even: imgs.even[0],odd: imgs.odd[0]},
+				images: { even: imgs.even[0], odd: imgs.odd[0] },
 				slices: 100
 			});
 
 			imagesLoaded(document.body, { background: true }, () => {
-               	document.body.classList.remove('loading');
+				document.body.classList.remove('loading');
 				animateGridItems();
-            });
+			});
 
 			let isAnimating = true;
 			let currentSlide = 0;
 			const slidesNavItems = Array.from(document.querySelectorAll('.slides__nav > .slides__nav-item'));
-			const changeLocation = (ev,pos) => {
+			const changeLocation = (ev, pos) => {
 				ev.preventDefault();
-				if ( pos === currentSlide || isAnimating ) {
+				if (pos === currentSlide || isAnimating) {
 					return false;
 				}
 
 				ev.target.classList.add('slides__nav-item--current');
 				slidesNavItems[currentSlide].classList.remove('slides__nav-item--current');
 
-				animateGridItems(currentSlide,pos);
+				animateGridItems(currentSlide, pos);
 				currentSlide = pos;
-				dil.switchImages(imgs.even[currentSlide],imgs.odd[currentSlide],true);
-				setTimeout(function(){
+				dil.switchImages(imgs.even[currentSlide], imgs.odd[currentSlide], true);
+				setTimeout(function () {
 					if (currentSlide === 1) {
 						window.location = 'splash.html';
 					}
 				}, 1450);
 			};
-			slidesNavItems.forEach((item, pos) => item.addEventListener('click', (ev) => changeLocation(ev,pos)));
+			slidesNavItems.forEach((item, pos) => item.addEventListener('click', (ev) => changeLocation(ev, pos)));
 
 			const gridItemsLetters = [];
 			slidesItems.forEach((item) => {
@@ -100,33 +104,33 @@
 							targets: lettersGroup,
 							duration: 900,
 							elasticity: 600,
-							delay: (t,i) => anime.random(200,1000),
+							delay: (t, i) => anime.random(200, 1000),
 							opacity: {
-								value: [0,1],
+								value: [0, 1],
 								duration: 20,
 								easing: 'linear'
 							},
-							scale: [0,1],
+							scale: [0, 1],
 							before: () => lettersGroup.style.opacity = 0
 						}).finished);
 					}
-					Promise.all(promises).then(()=> isAnimating = false);
+					Promise.all(promises).then(() => isAnimating = false);
 				};
 
-				if ( currentSlide !== -1 ) {
+				if (currentSlide !== -1) {
 					const promises = [];
 					for (lettersGroup of gridItemsLetters[currentSlide]) {
 						promises.push(anime({
 							targets: lettersGroup,
 							duration: 200,
 							easing: 'easeOutQuad',
-							delay: (t,i) => anime.random(200,1000),
+							delay: (t, i) => anime.random(200, 1000),
 							opacity: 0,
 							scale: 0,
 							before: () => lettersGroup.style.opacity = 1
 						}).finished);
 					}
-					Promise.all(promises).then(()=> newLettersFn());
+					Promise.all(promises).then(() => newLettersFn());
 				}
 				else {
 					newLettersFn();
@@ -143,13 +147,14 @@
 			// Demo purposes only..
 			new GlitchFx(document.querySelector('.pater > .pater__img'), {
 				// Max and Min values for the time when to start the effect.
-                glitchStart: {min: 1000, max: 5000},
-                // Max and Min values of time that an element keeps each state.
-                glitchState: {min: 50, max: 100},
-                // Number of times the glitch action is performed per iteration.
+				glitchStart: { min: 1000, max: 5000 },
+				// Max and Min values of time that an element keeps each state.
+				glitchState: { min: 50, max: 100 },
+				// Number of times the glitch action is performed per iteration.
 				glitchTotalIterations: 3
 			}).glitch();
 		}
-		</script>
-	</body>
+	</script>
+</body>
+
 </html>

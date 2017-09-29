@@ -15,8 +15,13 @@ body {
   color: #fff;
 }
 
-*{
-    overflow: hidden;
+* {
+  overflow: hidden;
+}
+
+img.ico {
+  width: 50px;
+  height: auto;
 }
 
 .row {
@@ -124,7 +129,7 @@ video {
   flex-direction: column;
 }
 
-div.shortcut-bar{
+div.shortcut-bar {
   position: absolute;
   padding: 5vh;
   height: 1%;
@@ -136,33 +141,32 @@ div.shortcut-bar{
   justify-content: space-between;
 }
 
-div.btn{
-    font-family: funhouse;
-    height: 50px;
-    width: 25%;
-    font-size: 32px;
-    cursor: pointer;
-    color: #fff;
-    text-align: center;
-    z-index: 1;
+div.btn {
+  font-family: funhouse;
+  height: 50px;
+  width: 25%;
+  font-size: 32px;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  z-index: 1;
 }
 
-div.btn.btn-2{
-    background-color: #E57979;
+div.btn.btn-2 {
+  background-color: #e57979;
 }
 
-div.btn.btn-3{
-    background-color: #E57979;
+div.btn.btn-3 {
+  background-color: #e57979;
 }
 
-div.btn.btn-4{
-    background-color: #E57979;
+div.btn.btn-4 {
+  background-color: #e57979;
 }
 
-
-div.btn:hover{
-    background-color: #fff;
-    color: #E57979;
+div.btn:hover {
+  background-color: #fff;
+  color: #e57979;
 }
 
 /*
