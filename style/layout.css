@@ -1,0 +1,229 @@
+
+
+*{
+  padding: 0;
+  margin: 0;    
+}
+
+
+.container{
+    height: 100%;
+    width: 100%;     
+}
+
+.container div:nth-child(1):not(.signup-progress-bar){
+    margin-top: 5%;
+}
+
+.container div:nth-child(last){
+    margin-bottom: 10%;
+}
+
+#map{
+    height: 100%;
+}
+
+.item{
+    height: 100%;
+    width: 100%;
+    /*display: flex;*/
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.block-4.SUP_options{
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+
+
+.signup-progress{
+    width: 50%;
+    margin: 0% auto;
+    display: flex;
+    height: 10px;
+}
+
+.pin-position{
+    width: 50%;
+    margin: 0% auto;
+    padding: 1%;
+    box-sizing: content-box;
+    
+}
+
+.pin{
+    width:50px;
+    height: 50px;
+    margin-left: 10%;
+}
+
+.signup-progress-bar{
+    width:25%;
+}
+
+.item{
+    box-sizing: content-box;
+}
+
+.div_btn{
+    border-width: 1px;
+    overflow: hidden;
+    padding:2%; 
+    width: 60%;
+    height: 20%;
+    border-radius: 5px;
+    margin: 5% auto;  
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.div_btn img{
+    width: 50px;
+    height: 50px;
+}
+
+
+.item div.carousel.slide,#myCarr div.carousel-inner{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+img.skill_img{
+    width: 80%;
+    height:auto;
+    border-radius: 100%;
+}
+
+.chosenSkills{
+    flex:display;
+    flex-wrap: nowrap;
+    align-content: flex-end;
+}
+ img.chosenSkillImg{
+   width: 8%; 
+   margin: 1%;
+   height: auto;    
+}    
+
+
+
+
+.skill-slider{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+div .current-skill{
+    width: 40%;
+    height: auto;
+  align-self: baseline;
+}
+
+div.prev-skill, div.next-skill{
+     width: 20%;
+    height: auto;
+    align-self: baseline;
+}
+
+div.new-skill{
+    width: 5%;
+    height: auto;
+    align-self: baseline; 
+}
+
+
+.block-1{
+    height:100px;
+}
+
+
+.block-2{
+    height:200px;
+
+}
+
+
+.block-3{
+    height:300px;
+
+}
+
+.block-4{
+    height:400px;
+
+}
+
+.block-6{
+    height:600px;
+
+}
+
+
+.block-8{
+    height:800px;padding:5%;
+
+}
+
+.block-12{
+    height:1200px;padding:5%;
+
+}
+
+
+
+@media only screen and (min-width : 1200px) {
+
+}
+     
+    
+@media only screen and (max-width : 1200px) {
+
+}
+
+@media only screen and (max-width : 1200px) {
+  
+
+}
+
+
+@media only screen and (max-width : 480px) {
+    .block-4.SUP_options{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+
+.signup-progress{
+    width: 80%;
+    margin: 0% auto;
+    display: flex;
+    height: 10px;
+}
+
+.pin-position{
+    width: 80%;
+    margin: 0% auto;
+    padding: 1%;
+    box-sizing: content-box;
+    
+}
+}
+
+@media only screen and (max-width : 320px) {
+
+}
