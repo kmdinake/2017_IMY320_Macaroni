@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: KeepCalm;
-  src: url("../fonts/KeepCalm.ttf");
+  src: url("../fonts/YesYesNo.ttf");
 }
 
 body {
@@ -96,7 +96,7 @@ video {
   padding: 10% 5%;
   background: #000;
   font-size: 32px;
-  color: rgba(240, 240, 240, 0.6);
+  color: #00ff02;
 }
 
 .right,
