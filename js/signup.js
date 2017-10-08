@@ -1,16 +1,48 @@
 var skills = [
-  { index: 0, name: "The Graphics Guy ", color: "#383375" },
-  { index: 1, name: "The Programmer", color: "#5A2F43" },
-  { index: 2, name: "The Sound Guy", color: "#594722" },
-  { index: 3, name: "The team coordinator", color: "#594722" }
+  {
+    index: 0,
+    name: "The Graphics Guy ",
+    color: "#383375",
+    description: "Hello  my name is Joey I'm the graphics guy ;)."
+  },
+  {
+    index: 1,
+    name: "The Programmer",
+    color: "#5A2F43",
+    description:
+      "The names Joe. I'm the brains of the group, I do all the real work while the other guys draw images," +
+      "give themselves meaningless title n hover aroud others work stations and pick out sounds from asset stores."
+  },
+  {
+    index: 2,
+    name: "The Sound Guy",
+    color: "#594722",
+    description:
+      "I spend most of my time playing online games and download songs the day before the deadline :), i love being the sound guy."
+  },
+  {
+    index: 3,
+    name: "The team coordinator",
+    color: "#594722",
+    description:
+      "Hey I'm Joey the group coordinator please ignore my colleage, he seems to believe code is all there is to a have successful project"
+  }
+];
+
+var sliderOBj;
+
+var dataText = [
+  "Hello  my name is Joey I'm the graphics guy ;)",
+  "Before the dust settled a new regime was born and it proceeded to take the Earth and remains of the Earth and it kept the spirits of man down. After years of planning and preparation, a broken man haunted by memories of the Old Earth and unanswered questions",
+  "Our hero sets out to go to the Heart of Toria and tries to save the world after receiving actionable intelligence about the base location of the regime that ascended as the Old Earth fell to the ashes. With the Heart of Toria being rumored to be impenetrable to normal men.Our noble hero chased whispers of a man, who is said to have built the impenetrable walls of Toria a hacker time once knew as Phase to enlist alongside noble soldiers in his strike at the Heart of Toria. "
 ];
 
 $(document).ready(function() {
   var Slider = function(skills) {
     this.skills = skills;
     this.first = true;
-    this.nextTargetIndex = 3;
-    this.currTargetIndex = 1;
+    this.nextTargetIndex = 1;
+    this.currTargetIndex = 0;
     this.prevTargetIndex = 0;
     this.elemNum = 11;
 
@@ -193,54 +225,69 @@ $(document).ready(function() {
       $("div.skill.new-skill").toggleClass("new-skill");
     };
   };
-
-  var sliderOBj = new Slider(skills);
-
+  sliderOBj = new Slider(skills);
   sliderOBj.viewState();
 
   $(".arrow-left").click(function() {
+    StartTextAnimation(this.prevTargetIndex);
     console.log("XXXxxxxxxxxxxxxxxx");
     sliderOBj.animatedPrev();
   });
 
   $(".arrow-right").click(function() {
+    StartTextAnimation(this.nextTargetIndex);
     sliderOBj.animatedNext();
   });
-
-  $("body").on("DOMMouseScroll mousewheel", function(event) {
-    console.log("up");
-    if (event.originalEvent.detail > 0 || event.originalEvent.wheelDelta < 0) {
-      //alternative options for wheelData: wheelDeltaX & wheelDeltaY
-      sliderOBj.animatedPrev();
-    } else {
-      sliderOBj.animatedNext();
-    }
-    //prevent page fom scrolling
-    return false;
-  });
-
-  positionPin(2);
-  $(".signup-progress-bar").click(function() {
-    resetActive();
-    $(this).addClass("active");
-    curr = this;
-    positionPin(determineProg(curr));
-  });
-
-  function resetActive() {
-    $(".signup-progress-bar").removeClass("active");
-  }
-
-  function determineProg(bar) {
-    var temp = 0;
-    var allPositions = $(".signup-progress-bar");
-    for (; allPositions[temp] != bar && temp < 4; temp++) {}
-    return temp;
-  }
-
-  function positionPin(pos) {
-    var newMarginLeft = 10 + pos * 20 + pos * 5;
-    newMarginLeft = newMarginLeft + "%";
-    $(".pin").animate({ marginLeft: newMarginLeft }, 700);
-  }
 });
+
+var member = 0;
+var timeOut;
+function myTypeWriter() {
+  StartTextAnimation(0);
+}
+
+// type one text in the typwriter
+// keeps calling itself until the text is finished
+// start a typewriter animation for a text in the dataText array
+function StartTextAnimation(i) {
+  if (typeof skills[i] == "undefined") {
+    setTimeout(function() {
+      StartTextAnimation(i);
+    }, 20000);
+  }
+  // check if dataText[i] exists
+  if (
+    dataText[i] !== undefined &&
+    dataText[i] !== null &&
+    i < dataText[i].length
+  ) {
+    // text exists! start typewriter animation
+    typeWriter(skills[i].description, 0, function() {
+      // after callback (and whole text has been animated), start next text
+      StartTextAnimation(i + 1);
+    });
+  }
+}
+
+function typeWriter(text, i, fnCallback) {
+  // chekc if text isn't finished yet
+  if (i < text.length) {
+    document.querySelector("div.typewrite").innerHTML =
+      text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
+    // wait for a while and call this function again for next character
+    //});
+    timeOut = setTimeout(function() {
+      typeWriter(text, i + 1, fnCallback);
+    }, 100);
+  } else if (typeof fnCallback == "function") {
+    // text finished, call callback if there is a callback function
+    // call callback after timeout
+
+    sliderOBj.animatedNext();
+    if (this.nextTargetIndex == 3) {
+      StartTextAnimation(3);
+    }
+    /*else*/
+    setTimeout(fnCallback, 700);
+  }
+}

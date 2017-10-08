@@ -12,6 +12,17 @@
     <script src="js/index.js">
 
     </script>
+    <script>
+        $('.btn').click(function () {
+            console.log("hello u");
+            var list = $('.btn').removeClass("active");
+            list.array.forEach(function (element) {
+                $(element).removeClass("active");
+            }, this);
+            $(this).addClass("active");
+        });
+    </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Heart of Toria</title>
 </head>
@@ -20,10 +31,10 @@
     <div class="shortcut-bar">
         <!-- <img id="joey" class="lilGuy" src="media/img/walkingJoey.gif" />
        -->
-        <div class="btn btn-1 animated pulse infinite">Home</div>
-        <div class="btn btn-2">Chapter 1</div>
-        <div class="btn btn-3">Chapter 2</div>
-        <div class="btn btn-4">Chapter 3</div>
+        <div class="btn btn-1 animated pulse infinite active">Home</div>
+        <div class="btn btn-2 animated infinite">Chapter 1</div>
+        <div class="btn btn-3 animated infinite">Chapter 2</div>
+        <div class="btn btn-4 animated infinite">Chapter 3</div>
     </div>
 
     <div class="row row1">

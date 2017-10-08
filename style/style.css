@@ -1,6 +1,6 @@
 @font-face {
   font-family: funHouse;
-  src: url("../fonts/Funhouse.ttf");
+  src: url("../fonts/YesYesNo.ttf");
 }
 
 @font-face {
@@ -13,10 +13,6 @@ body {
   padding: 0;
   margin: 0;
   color: #fff;
-}
-
-* {
-  overflow: hidden;
 }
 
 img.ico {
@@ -129,9 +125,20 @@ video {
   flex-direction: column;
 }
 
+a:link,
+a {
+  text-decoration: none;
+  color: #00ff02;
+}
+
+a:hover {
+  color: white;
+}
+
 div.shortcut-bar {
-  position: absolute;
-  padding: 5vh;
+  /*position: absolute;
+  */
+  padding: 2.5vh;
   height: 1%;
   width: 80%;
   margin: 0vh 5vw;
@@ -147,26 +154,29 @@ div.btn {
   width: 25%;
   font-size: 32px;
   cursor: pointer;
-  color: #fff;
+  color: #00ff02;
   text-align: center;
   z-index: 1;
 }
 
 div.btn.btn-2 {
-  background-color: #e57979;
+  background-color: transparent;
 }
 
 div.btn.btn-3 {
-  background-color: #e57979;
+  background-color: transparent;
 }
 
 div.btn.btn-4 {
-  background-color: #e57979;
+  background-color: transparent;
 }
 
 div.btn:hover {
-  background-color: #fff;
-  color: #e57979;
+  color: #ffffff;
+}
+
+div.btn.active {
+  color: white;
 }
 
 /*
