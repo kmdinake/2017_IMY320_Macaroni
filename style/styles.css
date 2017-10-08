@@ -1,84 +1,89 @@
 @font-face {
-    font-family: 'font1';
-    src: url("../fonts/AnjaEliane.ttf");
+  font-family: "font1";
+  src: url("../fonts/YesYesNo.ttf");
 }
 
-body{
-    background: #a7dbdb;
+body {
+  background: #a7dbdb;
+  font-family: font1 !important;
+  color: #00ff02;
 }
 
-.container{
-    background: inherit;
+.container {
+  background: inherit;
 }
 
-.block-4.SUP_options{
-    background: #fff;
-   /* border: solid;
+.block-4.SUP_options {
+  background: #fff;
+  /* border: solid;
     border-width: 1px;
      border-color: #ccc;*/
 }
 
-h3{
-    font-family: font1; 
-    color: #5A2F43;
+h3 {
+  font-family: font1;
+  color: #00ff02;
 }
 
-div.skill.prev-skill h3{
-    font-size: 12px;
+div.skill.prev-skill h3 {
+  font-size: 12px;
 }
 
-.div_btn{
-    border: solid;
-    border-color: #ccc;
-    cursor: pointer;
+.div_btn {
+  border: solid;
+  border-color: #ccc;
+  cursor: pointer;
 }
 
-.signup-progress{
-    background: #fff;
+.signup-progress {
+  background: #fff;
 }
 
-.signup-progress-bar.active{
-    background: #ccc;
+.signup-progress-bar.active {
+  background: #ccc;
 }
 
-.item{}
-
-div.prev-skill, div.next-skill{
-     width: 20%;
-    height: auto;
-    align-self: baseline;
-    opacity: 0.20;
+.item {
 }
 
-.nav-arrow-container{
-   /* position: fixed;*/
+div.prev-skill,
+div.next-skill {
+  width: 20%;
+  height: auto;
+  align-self: baseline;
+  opacity: 0.2;
 }
 
-.arrow{
-    height: 50px;
-    width: 50px;
-    opacity: 0.6;
+.nav-arrow-container {
+  /* position: fixed;*/
 }
 
-.arrow-left{
-   float: left;
-   margin-left: 30px;
+.arrow {
+  height: 50px;
+  width: 50px;
+  opacity: 0.6;
 }
 
-.arrow-right{
-   float: right;
-   margin-right: 30px;
+.arrow-left {
+  float: left;
+  margin-left: 30px;
 }
 
-div.current-skill{
-    animation-name: fadeIn;
-    animation-duration: 3s;
+.arrow-right {
+  float: right;
+  margin-right: 30px;
 }
 
-@keyframes fadeIn{
-    from{
-        opacity: 0.20;
-    }to{
-        opacity: 0.99;
-    }
+div.current-skill {
+  animation-name: fadeIn;
+  animation-duration: 3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 0.99;
+  }
 }

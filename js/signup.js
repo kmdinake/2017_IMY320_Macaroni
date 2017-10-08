@@ -1,15 +1,8 @@
 var skills = [
-  { index: 0, name: "Adobe Photoshop", color: "#383375" },
-  { index: 1, name: "Adobe InDesign", color: "#5A2F43" },
-  { index: 2, name: "Adobe Illustrator", color: "#594722" },
-  { index: 3, name: "Adobe After Effects", color: "#3A3568" },
-  { index: 4, name: "Adobe Dreamworks", color: "#3F5834" },
-  { index: 5, name: "Autodesk 3ds", color: "#0F716E" },
-  { index: 6, name: "HTML", color: "#F15931" },
-  { index: 7, name: "CSS", color: "#007DC6" },
-  { index: 8, name: "JS", color: "#F58233" },
-  { index: 9, name: "Photography", color: "#C6A263" },
-  { index: 10, name: "Painter", color: "#111" }
+  { index: 0, name: "The Graphics Guy ", color: "#383375" },
+  { index: 1, name: "The Programmer", color: "#5A2F43" },
+  { index: 2, name: "The Sound Guy", color: "#594722" },
+  { index: 3, name: "The team coordinator", color: "#594722" }
 ];
 
 $(document).ready(function() {
@@ -133,11 +126,7 @@ $(document).ready(function() {
       if (direction == "next") {
         var i = this.inc("c", 1);
         $("div.skill.current-skill").append(
-          "<h3 style='color:" +
-            this.skills[i].color +
-            ";'>" +
-            this.skills[i].name +
-            "</h3>"
+          "<h3>" + this.skills[i % skills.length].name + "</h3>"
         );
       } else if (direction == "prev") {
         var i = this.inc("c", -1) - 1;
@@ -216,6 +205,18 @@ $(document).ready(function() {
 
   $(".arrow-right").click(function() {
     sliderOBj.animatedNext();
+  });
+
+  $("body").on("DOMMouseScroll mousewheel", function(event) {
+    console.log("up");
+    if (event.originalEvent.detail > 0 || event.originalEvent.wheelDelta < 0) {
+      //alternative options for wheelData: wheelDeltaX & wheelDeltaY
+      sliderOBj.animatedPrev();
+    } else {
+      sliderOBj.animatedNext();
+    }
+    //prevent page fom scrolling
+    return false;
   });
 
   positionPin(2);
